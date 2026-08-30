@@ -1,57 +1,146 @@
-html_prueba = """
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de NexoBCI</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333333;
-            padding: 10px;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
         }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
         h1 {
             color: #0056b3;
             border-bottom: 2px solid #0056b3;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
+            margin-bottom: 5px;
         }
+
+        .subtitle {
+            color: #5f6b76;
+            font-size: 1.05em;
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+
+        .version {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
         h2 {
             color: #2c3e50;
-            margin-top: 20px;
+            margin-top: 25px;
+            margin-bottom: 8px;
         }
+
+        p {
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
         ul {
+            margin-top: 8px;
             margin-bottom: 15px;
+            padding-left: 25px;
         }
-        .highlight {
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .institution {
             background-color: #f8f9fa;
             border-left: 4px solid #17a2b8;
-            padding: 10px;
-            font-style: italic;
+            padding: 14px 16px;
+            margin: 15px 0;
+        }
+
+        .notice {
+            background-color: #fff8e1;
+            border-left: 4px solid #f0ad4e;
+            padding: 12px 16px;
+            margin-top: 25px;
+        }
+
+        .footer {
+            color: #6c757d;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 1px solid #dddddd;
+            margin-top: 30px;
+            padding-top: 15px;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Acerca de NexoBCI</h1>
+        <p class="subtitle">
+            Interfaz cerebro-computadora para el control de videojuegos mediante SSVEP
+        </p>
+        <p class="version"><strong>Versión 1.0</strong></p>
 
-    <h1>Instrucciones de la Prueba (Test Instructions)</h1>
-    <p>Bienvenido al sistema. Este texto es una prueba para verificar el correcto funcionamiento y renderizado del visualizador HTML integrado en la interfaz gráfica.</p>
-    
-    <div class="highlight">
-        <b>Nota importante:</b> Asegúrese de que todos los parámetros estén correctamente configurados antes de presionar el botón de inicio.
+        <p>
+            <strong>NexoBCI</strong> es una aplicación de interfaz cerebro-computadora
+            orientada al control de videojuegos mediante Potenciales Evocados Visuales de Estado Estacionario (SSVEP), obtenidas a partir de señales de
+            electroencefalografía (EEG).
+        </p>
+
+        <h2>Finalidad</h2>
+        <p>
+            La aplicación integra en un mismo entorno la adquisición y visualización
+            de señales EEG, su procesamiento y clasificación, la presentación de
+            estímulos visuales y la conversión de los resultados en comandos de
+            teclado. De esta manera, permite utilizar las respuestas SSVEP como una
+            vía de interacción con videojuegos.
+        </p>
+
+        <h2>Contexto de desarrollo</h2>
+        <div class="institution">
+            NexoBCI fue desarrollada como parte de un proyecto final de la carrera de
+            Bioingeniería, llevado a cabo por el
+            <strong>Grupo de Ingeniería en Rehabilitación (GIR)</strong>, perteneciente a la
+            <strong>Facultad de Ingeniería de la Universidad Nacional de Entre Ríos
+            (FIUNER)</strong>.
+            <br><br>
+            <strong>Lugar:</strong> Oro Verde, Entre Ríos, Argentina.<br>
+            <strong>Año:</strong> 2026.
+        </div>
+
+        <h2>Funciones principales</h2>
+        <ul>
+            <li>Adquisición y visualización de señales de EEG.</li>
+            <li>Filtrado y procesamiento de las señales adquiridas.</li>
+            <li>Generación y presentación de estímulos visuales.</li>
+            <li>Clasificación de respuestas SSVEP.</li>
+            <li>Traducción de las respuestas detectadas en comandos de teclado.</li>
+            <li>Integración con videojuegos y evaluación del desempeño del sistema.</li>
+        </ul>
+
+        <h2>Tecnologías utilizadas</h2>
+        <p>
+            NexoBCI fue desarrollada en Python. Su interfaz gráfica utiliza PySide6
+            y Qt, mientras que la generación de estímulos visuales se realiza con
+            PsychoPy. El procesamiento y la clasificación de las señales se apoyan
+            en bibliotecas de computación científica y aprendizaje automático.
+        </p>
+
+        <p class="footer">
+            Grupo de Ingeniería en Rehabilitación (GIR) &mdash; FIUNER
+        </p>
     </div>
-
-    <h2>1. Pasos Principales</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Para un correcto desempeño, siga estas indicaciones:</p>
-    
-    <ul>
-        <li><b>Paso A:</b> Verificar la conexión de los canales y la estabilidad de la señal de fondo.</li>
-        <li><b>Paso B:</b> Seleccionar la frecuencia de estimulación visual adecuada en el panel de configuraciones.</li>
-        <li><b>Paso C:</b> Presionar el botón de ejecución para dar inicio a la adquisición y distribución de datos.</li>
-    </ul>
-
-    <h2>2. Consideraciones Técnicas</h2>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    
-    <p>Si experimenta parpadeos inusuales o congelamiento en la ventana principal, verifique la carga de hilos en el controlador de la aplicación.</p>
-
 </body>
 </html>
-"""

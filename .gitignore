@@ -1,17 +1,15 @@
-# PyInstaller
+
 build/
 dist/
-
-
-
-# Virtual env
 .venv/
-
+venv/
 .agents/
+__pycache__/
 
 data/
 
 *.spec
-
-# If you generate extra artifacts
+*.pyc
 *.exe
+.env
+.vscode/
