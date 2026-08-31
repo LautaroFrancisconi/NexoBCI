@@ -50,8 +50,7 @@ class AppController(QObject):
         self.__weights_manager = None
         self.__actual_user = None
         self.__signal_classifier = None
-        self.__eeg_iface = EEGFileInterface(arch_n="eeg_bin.bin")
-        #self.__eeg_iface = EEGSerialInterface()      
+        self.__eeg_iface = EEGSerialInterface()      
         self.__eeg_widget = EEGWidget()
         self.__eeg_filters = SignalFilters()
         self.__psd_estimator = PSDEstimator()
