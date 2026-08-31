@@ -5,7 +5,7 @@ from src.app.app_controller import AppController
 
 
 
-def get_app_dir(folder_name="NexusBCI_data"):
+def get_app_dir(folder_name="NexoBCI_data"):
     if getattr(sys, 'frozen', False):
         # Corriendo como .exe empaquetado
         base_dir = os.path.dirname(sys.executable)
