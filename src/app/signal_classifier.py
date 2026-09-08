@@ -7,7 +7,7 @@ from sklearn.cross_decomposition import CCA
 from src.app.dataclasses import UserPreferences
 
 
-class BaseEEGClassifier:
+class BaseClassifier:
     """Clase base para clasificadores de señales EEG.
 
     Proporciona la gestión del búfer de datos, el umbral de decisión y la lógica 
@@ -196,7 +196,7 @@ class BaseEEGClassifier:
         raise NotImplementedError("Las clases hijas deben implementar el método classify_signal.")
 
 
-class EEGSignalTRCAClassifier(BaseEEGClassifier):
+class SignalTRCAClassifier(BaseClassifier):
     """Clasificador EEG basado en Task-Related Component Analysis (TRCA).
 
     Utiliza pesos preentrenados y plantillas de entrenamiento para maximizar 
@@ -270,7 +270,7 @@ class EEGSignalTRCAClassifier(BaseEEGClassifier):
         return self._validate_threshold(rho)
 
 
-class EEGSignalCCAClassifier(BaseEEGClassifier):
+class SignalCCAClassifier(BaseClassifier):
     """Clasificador EEG basado en Canonical Correlation Analysis (CCA).
 
     Genera señales de referencia basadas en armónicos de las frecuencias de los 

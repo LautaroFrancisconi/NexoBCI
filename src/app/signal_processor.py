@@ -3,7 +3,7 @@ from typing import Any
 from PySide6.QtCore import QObject, Signal, Slot
 
 
-class EEGSignalProcessor(QObject):
+class SignalProcessor(QObject):
     """Procesador de señales EEG que coordina el filtrado, estimación de PSD y clasificación.
 
     Esta clase actúa como un orquestador en tiempo real: recibe muestras de señal decodificadas,

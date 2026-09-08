@@ -10,8 +10,8 @@ SequenceWidget,
 from src.app.config import crear_engine, init_database
 from src.app.dataclasses import ClassificationMethods, UserPreferences
 from src.app.eeg_serial_iface import EEGFileInterface, EEGSerialInterface
-from src.app.eeg_signal_classifier import EEGSignalCCAClassifier, EEGSignalTRCAClassifier
-from src.app.eeg_signal_procesor import EEGSignalProcessor
+from src.app.signal_classifier import SignalCCAClassifier, SignalTRCAClassifier
+from src.app.signal_processor import SignalProcessor
 from src.app.eeg_widget import EEGWidget
 from src.app.electrode_head_widget import ElectrodeHeadWidget
 from src.app.game_manager import GameManager
@@ -50,7 +50,8 @@ class AppController(QObject):
         self.__weights_manager = None
         self.__actual_user = None
         self.__signal_classifier = None
-        self.__eeg_iface = EEGSerialInterface()      
+        self.__eeg_iface = EEGFileInterface(arch_n = 'eeg_bin.bin')
+        #self.__eeg_iface = EEGSerialInterface()      
         self.__eeg_widget = EEGWidget()
         self.__eeg_filters = SignalFilters()
         self.__psd_estimator = PSDEstimator()
@@ -58,7 +59,7 @@ class AppController(QObject):
         self.__keyboard = KeyboardController()
         self.__processing_thread = QThread()
         self.__head_widget = ElectrodeHeadWidget()
-        self.__processing_worker = EEGSignalProcessor(self.__eeg_filters, self.__psd_estimator)
+        self.__processing_worker = SignalProcessor(self.__eeg_filters, self.__psd_estimator)
         self.__trainer = TrainingManager(base_dir=data_dir, p_filterbank=self.__eeg_filters.filterbank)
         self.__stimulus_viewer = StimulusViewer()
         self.__game_manager = GameManager()
@@ -387,11 +388,11 @@ class AppController(QObject):
         
         # Instanciar el nuevo clasificador
         if prefs.classification_method == ClassificationMethods.eTRCA.name:
-            self.__signal_classifier = EEGSignalTRCAClassifier()
+            self.__signal_classifier = SignalTRCAClassifier()
             self.__signal_classifier.load_filterbank(self.__eeg_filters.filterbank)
             self.__processing_worker.load_classifier(self.__signal_classifier)
         elif prefs.classification_method == ClassificationMethods.CCA.name:
-            self.__signal_classifier = EEGSignalCCAClassifier()
+            self.__signal_classifier = SignalCCAClassifier()
             self.__signal_classifier.load_data(
                 builtins.SAMPLE_RATE,
                 prefs,
