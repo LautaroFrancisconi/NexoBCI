@@ -347,7 +347,6 @@ class BCIEvaluator(QObject):
         """
         Calcula la Tasa de Transferencia de Información (ITR) en bits por minuto.
 
-        Utiliza la fórmula de Wolpaw et al.:
             bits_por_trial = log2(N) + P*log2(P) + (1-P)*log2((1-P)/(N-1))
             ITR = bits_por_trial * (60 / T)
 
@@ -458,7 +457,7 @@ class BCIEvaluator(QObject):
             f"Total de intentos: {len(self.__true_labels)}",
             f"Selecciones completadas (aciertos): {len(self.__hits)}",
             f"Fallos: {len(self.__misses)}",
-            f"Accuracy: {acc:.2f}%",
+            f"Exactitud: {acc:.2f}%",
         ]
 
         try:
