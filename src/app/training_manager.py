@@ -185,8 +185,8 @@ class TrainingManager(QObject):
             return
 
         if self.__time is None:
-            if len(sample) > 1:
-                self.__time = time.perf_counter() - (len(sample) - 1) * self.__delta_t
+            if len(sample) > 0 and len(sample[0]) > 1:
+                self.__time = time.perf_counter() - (len(sample[0]) - 1) * self.__delta_t
             else:
                 self.__time = time.perf_counter()
 
